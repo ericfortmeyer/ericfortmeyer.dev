@@ -12,7 +12,7 @@ const filesToCache = [
     './resources/images/scheduler.jp2',
     './resources/fonts/veteran-typewriter.ttf',
 ];
-const hostsRequiringCaching = ['ericfortmeyer.dev', 'localhost'];
+const hostsRequiringCaching = ['ericfortmeyer.dev', 'iam.ericfortmeyer.dev', 'www.ericfortmeyer.dev', 'localhost'];
 const setUpCaching = e => host => e.waitUntil(
     caches.open(host).then(cache => cache.addAll(filesToCache))
 );
