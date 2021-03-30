@@ -74,7 +74,7 @@
             <li>Checking <a href="https://www.php.net/manual/en/function.isset">isset</a> on a hash set is much faster than <a href="https://www.php.net/manual/en/function.in-array">in_array</a>.</li>
             <li><code><span class="symbol">$a</span> <span class="operator">+=</span> <span class="symbol">3</span></code> results in faster execution than <code><span class="symbol">$a</span> <span class="operator">=</span> <span class="operator">$a</span> <span class="operator">+</span> <span class="symbol">3</span></code>  <a href="https://www.php.net/manual/en/language.expressions.php">See this.</a></li>
             <li>The spaceship operator can be used for value object comparison.</li>
-            <li>Be wary of incrementing/decrementing float constants.  <a href="https://www.php.net/manual/en/language.operators.increment.php#109621">See this.</a></li>
+            <li>Be wary of <span style="word-wrap:break-word;">incrementing/decrementing</span> float constants.  <a href="https://www.php.net/manual/en/language.operators.increment.php#109621">See this.</a></li>
             <li>Switch statements will execute the statement for each case &lt;= target value if there is no break statement.</li>
             <li>
                 <a href="https://www.php.net/manual/en/control-structures.switch.php">Switch statements</a> may execute faster than a series of if statements.  This is because the condition is evaluated only once and the result is compared to each case statement.
@@ -137,7 +137,10 @@
                 <code><span class="symbol">self</span><span class="operator">::</span></code>, 
                 <code><span class="symbol">parent</span><span class="operator">::</span></code>, 
                 <code><span class="symbol">static</span><span class="operator">::</span></code>, 
-                or, if going up in the class hierarchy, <a href="https://www.php.net/manual/en/function.forward-static-call">forward_static_call()</a>. The function <a href="https://www.php.net/manual/en/function.get-called-class">get_called_class()</a> can be used to retrieve a string with the name of the called class and static:: introduces its scope.</li>
+                or, if going up in the class hierarchy, <a href="https://www.php.net/manual/en/function.forward-static-call">forward_static_call()</a>. The function 
+                <a href="https://www.php.net/manual/en/function.get-called-class">get_called_class()</a> 
+                
+                can be used to retrieve a string with the name of the called class and static:: introduces its scope.</li>
             <li>"Late static bindings" was named with an internal perspective in mind. "Late binding" comes from the fact that <code><span class="symbol">static</span><span class="operator">::</span></code> will not be resolved using the class where the method is defined but it will rather be computed using runtime information. It was also called a "static binding" as it can be used for (but is not limited to) static method calls.</li>
             <li>A reference is required to write to the same object property.  Variables whose values are set to an object can read from the same properties.</li>
             <li>One notable interaction is between the finally block and a return statement. If a return statement is encountered inside either the try or the catch blocks, the finally block will still be executed. Moreover, the return statement is evaluated when encountered, but the result will be returned after the finally block is executed. Additionally, if the finally block also contains a return statement, the value from the finally block is returned.</li>
