@@ -4,9 +4,9 @@ const filesToCache = [
     './resources/images/icon-512.png',
     './resources/fonts/veteran-typewriter.ttf',
 ];
-const hostsRequiringCaching = ['ericfortmeyer.dev', 'iam.ericfortmeyer.dev', 'www.ericfortmeyer.dev', 'localhost'];
+const hostsRequiringCaching = ['ericfortmeyer.dev', 'iam.ericfortmeyer.dev', 'www.ericfortmeyer.dev'];
 const setUpCaching = e => host => e.waitUntil(
-    caches.open(host).then(cache => cache.addAll(filesToCache))
+    caches.open(host).then(cache => cache.addAll(filesToCache), console.log)
 );
 self.addEventListener('install', function(e) {
     hostsRequiringCaching.map(setUpCaching(e))
