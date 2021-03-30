@@ -4,7 +4,7 @@ const filesToCache = [
     '/resources/images/icon-512.png',
     '/resources/fonts/veteran-typewriter.ttf',
 ];
-const hostsRequiringCaching = ['ericfortmeyer.dev'];
+const hostsRequiringCaching = ['ericfortmeyer.dev-v1'];
 const setUpCaching = e => host => e.waitUntil(
     caches.open(host).then(cache => cache.addAll(filesToCache), console.log)
 );
