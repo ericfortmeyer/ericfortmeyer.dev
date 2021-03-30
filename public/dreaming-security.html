@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <title>ericfortmeyer.dev | Dreaming Security</title>
+      <meta name="theme-color" content="#ffffff" />
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta name="author" content="Eric Fortmeyer" />
+      <meta name="description" content="Application Security" />
+      <meta name="keywords" content="security,mitigation" />
+      <link rel="manifest" href="/manifest.json" />
+      <link rel="icon" href="/resources/images/icon-192.png" />
+      <link rel="apple-touch-icon" href="/resources/images/icon-192.png" />
+      <style>@font-face{font-family: "Custom Typewriter";font-display: swap;src: url('/resources/fonts/veteran-typewriter.ttf');}body {font-family: "Custom Typewriter", serif;}.site-title {font-size: 11vw;margin: 30vh auto;text-align: center}a {color: saddlebrown;font-size: 1.5em;}nav {font-size: 2.5rem;text-align: center;margin: 5rem auto;}a {transition: all 400ms;text-decoration: none;}a:hover {color: lightblue}ul {list-style-type: none; padding-left: 0;}h1, h2, h3, h4 {text-align: center}</style>
+      <style>
+        .dreaming-security {
+            font-size: 2.5em;
+            margin: 5rem 3vw;
+        }
+        .dreaming-security ul {
+            font-size: 1.75rem;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        li {
+            margin-bottom: 3rem;
+        }
+        @media only screen and (max-width: 500px) {
+            body {
+                font-size: 3vw;
+            }
+        }
+        h3.subheading {
+            color: #3e3e3e;
+        }
+      </style>
+  </head>
+  <body>
+    <main class="dreaming-security">
+        <h1>dreaming security</h1>
+        <h3 class="subheading">DB Security</h3>
+        <ul>
+            <li>
+                <a href="https://www.php.net/manual/en/security.database.design.php">User/Application Instance permissions are very effective</a>
+            </li>
+            <li>
+                <a href="https://www.php.net/manual/en/security.database.storage.php">Encryption at rest</a>
+            </li>
+            <li>
+                <a href="https://www.php.net/manual/en/security.database.connection.php">Secure connections</a>
+            </li>
+        </ul>
+        <nav><a href="/">go back;</a></nav>
+    </main>
+  </body>
+  <script type="text/javascript">
+    'serviceWorker' in navigator
+        && navigator.serviceWorker.register('/sw.js');
+  </script>
+</html>
