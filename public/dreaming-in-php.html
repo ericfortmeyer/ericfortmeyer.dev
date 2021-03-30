@@ -29,7 +29,7 @@
                 <a href="https://www.php.net/manual/en/pdo.constants.php#pdo.constants.fetch-class">PDO:FETCH_CLASS</a> will use <a href="https://www.php.net/manual/en/language.oop5.overloading.php#language.oop5.overloading.members">__set()</a> magic method when it encounters an undefined property.  Properties are case-sensitive.
             </li>
             <li>
-                Autoloading classes is quick to implement and less error-prone than include/require.  <a href="https://www.php.net/manual/en/language.oop5.autoload.php#120258">Easy PSR-4 Implementation</a>
+                Autoloading classes is quick to implement, less error-prone than include/require, and does not have a significant impact on performance.  <a href="https://www.php.net/manual/en/language.oop5.autoload.php#120258">Easy PSR-4 Implementation</a>
             </li>
             <li>
                 PHP has <a href="https://www.php.net/manual/en/language.types.integer.php#example-42">integer literals</a>, "not a number"(<code><span class="symbol">NAN</span></code>), negative and positive infinity(<code><span class="symbol">INF</span></code>, <code><span class="operator">-</span><span class="symbol">INF</span></code>), and min/max integer and float values.
@@ -114,7 +114,7 @@
                 </ol>
             </li>
             <li>
-                Use the <code><span class="symbol">extends</span></code> keyword to combine interfaces (known as &-ing in other programming languages).
+                Use the <code><span class="symbol">extends</span></code> keyword to combine interfaces.
                 <br />
                 <br />
                 <code class="multiline"><span style="color: #000000">
@@ -127,12 +127,12 @@
                 </code>
             </li>
             <li>
-                Nesting an anonymous class within another class does not give it access to any private or protected methods or properties of that outer class. In order to use the outer class' protected properties or methods, the anonymous class can extend the outer class. To use the private properties of the outer class in the anonymous class, they must be passed through its constructor
+                Nesting an anonymous class within another class does not give it access to any private or protected methods or properties of that outer class. In order to use the outer class's protected properties or methods, the anonymous class can extend the outer class. To use the private properties of the outer class in the anonymous class, they must be passed through its constructor
             </li>
             <li>
                 Fully qualified names (i.e. names starting with a backslash) are not allowed in namespace declarations, because such constructs are interpreted as relative namespace expressions.
             </li>
-            <li>Methods can be declared as final.</li>
+            <li>Methods can be declared as <code><span class="symbol">final</span></code>.</li>
             <li>More precisely, late static bindings work by storing the class named in the last "non-forwarding call". In case of static method calls, this is the class explicitly named (usually the one on the left of the :: operator); in case of non static method calls, it is the class of the object. A "forwarding call" is a static one that is introduced by 
                 <code><span class="symbol">self</span><span class="operator">::</span></code>, 
                 <code><span class="symbol">parent</span><span class="operator">::</span></code>, 
@@ -140,11 +140,11 @@
                 or, if going up in the class hierarchy, <a href="https://www.php.net/manual/en/function.forward-static-call">forward_static_call()</a>. The function 
                 <a href="https://www.php.net/manual/en/function.get-called-class">get_called_class()</a> 
                 
-                can be used to retrieve a string with the name of the called class and static:: introduces its scope.</li>
+                can be used to retrieve a string with the name of the called class and <code><span class="symbol">static</span><span class="operator">::</span></code> introduces its scope.</li>
             <li>"Late static bindings" was named with an internal perspective in mind. "Late binding" comes from the fact that <code><span class="symbol">static</span><span class="operator">::</span></code> will not be resolved using the class where the method is defined but it will rather be computed using runtime information. It was also called a "static binding" as it can be used for (but is not limited to) static method calls.</li>
             <li>A reference is required to write to the same object property.  Variables whose values are set to an object can read from the same properties.</li>
             <li>One notable interaction is between the finally block and a return statement. If a return statement is encountered inside either the try or the catch blocks, the finally block will still be executed. Moreover, the return statement is evaluated when encountered, but the result will be returned after the finally block is executed. Additionally, if the finally block also contains a return statement, the value from the finally block is returned.</li>
-            <li>Exceptions cannot be cloned. Attempting to clone an Exception will result in a fatal E_ERROR error.</li>
+            <li>Exceptions cannot be cloned. Attempting to clone an <code><span class="symbol">Exception</span></code> will result in a fatal <code><span class="symbol">E_ERROR</span></code> error.</li>
             <li>If you assign, pass, or return an undefined variable by reference, it will get created.</li>
             <li>If you assign a reference to a variable declared global inside a function, the reference will be visible only inside the function. You can avoid this by using the <code><span class="symbol">$GLOBALS</span></code> array.</li>
             <li>References inside arrays are potentially dangerous. Doing a normal (not by reference) assignment with a reference on the right side does not turn the left side into a reference, but references inside arrays are preserved in these normal assignments. This also applies to function calls where the array is passed by value. In other words, the reference behavior of arrays is defined in an element-by-element basis; the reference behavior of individual elements is dissociated from the reference status of the array container.
@@ -157,18 +157,18 @@
                 </code>
             </li>
             <li>
-                There are three scenarios where a TypeError may be thrown. The first is where the argument type being passed to a function does not match its corresponding declared parameter type. The second is where a value being returned from a function does not match the declared function return type. The third is where an invalid number of arguments are passed to a built-in PHP function (strict mode only)
+                There are three scenarios where a <code><span class="symbol">TypeError</span></code> may be thrown. The first is where the argument type being passed to a function does not match its corresponding declared parameter type. The second is where a value being returned from a function does not match the declared function return type. The third is where an invalid number of arguments are passed to a built-in PHP function (strict mode only)
             </li>
         </ol>
         <h3 class="subheading">Sessions</h3>
-        <ul>
+        <ol>
             <li>
                 <a href="https://www.php.net/manual/en/features.session.security.management.php#features.session.security.management.non-adaptive-session">Use strict mode</a> should be enabled for sessions.
             </li>
-            <li>A user id can be prefixed to a session id.  PHP &gt;= 7.1.0</li>
-            <li>A timestamp should be used when generating a session id</li>
+            <li>A user id can be prefixed to a session id.  PHP &gt;= 7.1.0.</li>
+            <li>A timestamp should be used when generating a session id.</li>
             <li>Use <a href="https://www.php.net/manual/en/features.session.security.management.php#features.session.security.management.session-locking">read only sessions</a> to mitigate DoS attacks.</li>
-        </ul>
+        </ol>
         <nav><a href="/">go back;</a></nav>
     </main>
   </body>
