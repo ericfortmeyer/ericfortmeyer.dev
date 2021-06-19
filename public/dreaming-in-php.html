@@ -24,6 +24,9 @@
             <h2 class="subheading">PHP Pro Tips and Gotchas</h2>
             <ol>
                 <li>
+                    Using the extract function on an associative array that has a key "this" will cause an error.
+                </li>
+                <li>
                     Use <code><span class="operator">+=</span></code> to append the values in one array to another without having to initalize a new variable.<code><span class="symbol">$oldArray</span><span class="operator"> += </span><span class="symbol">[</span> <span class="string">"some"</span> <span class="operator">=&gt;</span> <span class="string">"thing"</span> <span class="symbol">,</span> <span class="string">"another"</span> <span class="operator">=&gt;</span> <span class="string">"thing"</span> <span class="symbol">]</span></code>
                 </li>
                 <li>
@@ -188,6 +191,20 @@
                 <li>A timestamp should be used when generating a session id.</li>
                 <li>Use <a href="https://www.php.net/manual/en/features.session.security.management.php#features.session.security.management.session-locking">read only sessions</a> to mitigate DoS attacks.</li>
             </ol>
+        </article>
+        <article id="garbage-collection-colors">
+            <h4>Garbage Collection colors:</h4>
+            <dl>
+                <dt>Black</dt>
+                <dd>In use or free.</dd>
+                <dt style="color:gray">Grey</dt>
+                <dd>Possible member of cycle.</dd>
+                <dt>White</dt>
+                <dd>Member of garbage cycle.</dd>
+                <dt style="color:purple">Purple</dt>
+                <dd>Possible root of cycle.</dd>
+            </dl>
+            <p><a href="http://researcher.watson.ibm.com/researcher/files/us-bacon/Bacon01Concurrent.pdf">See this paper.</a></p>
         </article>
         <nav><a href="/">go back;</a></nav>
     </main>
