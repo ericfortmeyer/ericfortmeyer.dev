@@ -35,10 +35,24 @@
           <p>
             Achieved high website performance goals.  <a href="lighthouse-profile.html">See the results.</a>
           </p>
-          <p><a href="mailto:e.fortmeyer01@gmail.com">e.fortmeyer01@gmail.com</a></p>
-          <p><a href="https://www.twitter.com/EricFortmeyer">Twitter handle</a></p>
+          <address>
+            <ul>
+                <li><a href="mailto:e.fortmeyer01@gmail.com">e.fortmeyer01@gmail.com</a></li>
+                <li><a href="https://www.twitter.com/EricFortmeyer">Twitter handle</a></li>
+            </ul>
+          </address>
+          <time id="time"></time>
       </footer>
   </body>
+  <script type="text/javascript">
+      const clock = (timeEl) => {
+        const date = new Date();
+        timeEl.textContent = date.toLocaleTimeString();
+        timeEl.setAttribute("datetime", date.toISOString());
+      }
+      const timeElement = document.querySelector("#time");
+      setInterval(clock, 1000, timeElement);
+  </script>
   <script type="text/javascript">
     "serviceWorker" in navigator
         && navigator.serviceWorker.register("./sw.js");

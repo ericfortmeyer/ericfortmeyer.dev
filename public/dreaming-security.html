@@ -7,7 +7,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta name="author" content="Eric Fortmeyer" />
       <meta name="description" content="Application Security" />
-      <meta name="keywords" content="security,mitigation" />
+      <meta name="keywords" content="security,mitigation,database,tips" />
       <link rel="manifest" href="/manifest.json" />
       <link rel="icon" href="/resources/images/icon-192.png" />
       <link rel="apple-touch-icon" href="/resources/images/icon-192.png" />
@@ -22,18 +22,20 @@
   <body>
     <main class="dreaming-security">
         <h1>dreaming security</h1>
-        <h2 class="subheading">DB Security</h2>
-        <ul>
-            <li>
-                <a href="https://www.php.net/manual/en/security.database.design.php">User/Application Instance permissions are very effective</a>
-            </li>
-            <li>
-                <a href="https://www.php.net/manual/en/security.database.storage.php">Encryption at rest</a>
-            </li>
-            <li>
-                <a href="https://www.php.net/manual/en/security.database.connection.php">Secure connections</a>
-            </li>
-        </ul>
+        <article id="database-security">
+            <h2 class="subheading">DB Security</h2>
+            <ul id="list-of-database-security-tips">
+                <li>
+                    <a href="https://www.php.net/manual/en/security.database.design.php">User/Application Instance permissions are very effective</a>
+                </li>
+                <li>
+                    <a href="https://www.php.net/manual/en/security.database.storage.php">Encryption at rest</a>
+                </li>
+                <li>
+                    <a href="https://www.php.net/manual/en/security.database.connection.php">Secure connections</a>
+                </li>
+            </ul>
+        </article>
         <nav><a href="/">go back;</a></nav>
     </main>
     <hr />
@@ -43,8 +45,12 @@
         <p>
           Achieved high website performance goals.  <a href="lighthouse-profile.html">See the results.</a>
         </p>
-        <p><a href="mailto:e.fortmeyer01@gmail.com">e.fortmeyer01@gmail.com</a></p>
-        <p><a href="https://www.twitter.com/EricFortmeyer">Twitter handle</a></p>
+        <address>
+            <ul>
+                <li><a href="mailto:e.fortmeyer01@gmail.com">e.fortmeyer01@gmail.com</a></li>
+                <li><a href="https://www.twitter.com/EricFortmeyer">Twitter handle</a></li>
+            </ul>
+        </address>
     </footer>
   </body>
   <script type="text/javascript">

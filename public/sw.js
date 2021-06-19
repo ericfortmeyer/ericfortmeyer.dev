@@ -1,5 +1,4 @@
 const filesToCache = [
-    '/',
     '/manifest.json',
     '/resources/images/icon-192.png',
     '/resources/images/icon-512.png',
