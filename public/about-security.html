@@ -1,24 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>ericfortmeyer.dev</title>
-    <meta charset="utf-8" />
+    <title>ericfortmeyer.dev | Dreaming Security</title>
     <meta name="theme-color" content="#ffffff" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Eric Fortmeyer" />
-    <meta name="description" content="Eric Fortmeyer"s official website" />
-    <meta name="keywords" content="Blog,projects,interests" />
+    <meta name="description" content="Application Security" />
+    <meta name="keywords" content="security,mitigation,database,tips" />
     <link rel="manifest" href="manifest.json" />
     <link rel="icon" href="resources/images/icon-192.png" />
     <link rel="apple-touch-icon" href="resources/images/icon-192.png" />
-    <style>
-      body {
-        line-height: 1.4;
-      }
-      footer {
-        font-size: 1.5rem;
-      }
-    </style>
     <style>
       @font-face {
         font-family: "Custom Typewriter";
@@ -35,46 +27,84 @@
       }
       a {
         color: saddlebrown;
-      }
-      nav a {
         font-size: 1.5em;
       }
       nav {
-        font-size: 2.5em;
+        font-size: 2.5rem;
         text-align: center;
         margin: 5rem auto;
       }
       a {
-        cursor: pointer;
-      }
-      nav a {
-        display: inline-block;
-        margin: 3rem 2vw;
         transition: all 400ms;
+        text-decoration: none;
       }
-      nav a:hover {
+      a:hover {
         color: lightblue;
       }
       ul {
         list-style-type: none;
         padding-left: 0;
       }
-      main li {
-        display: inline-block;
+      h1,
+      h2,
+      h3,
+      h4 {
+        text-align: center;
+      }
+    </style>
+    <style>
+      body {
+        line-height: 1.4;
+      }
+    </style>
+    <style>
+      .dreaming-security {
+        font-size: 2.5em;
+        margin: 5rem 3vw;
+      }
+      .dreaming-security ul {
+        font-size: 1.75rem;
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+      }
+      li {
+        margin-bottom: 1rem;
+      }
+      @media only screen and (max-width: 500px) {
+        body {
+          font-size: 3vw;
+        }
+      }
+      h3.subheading {
+        color: #3e3e3e;
       }
     </style>
   </head>
   <body>
-    <main>
-      <h1 class="site-title">ericfortmeyer.dev</h1>
-      <nav>
-        <ul>
-          <li><a href="projects.html">projects;</a></li>
-          <li><a href="articles.html">articles;</a></li>
-          <li><a href="dreaming-in-php.html">dreaming in php;</a></li>
-          <li><a href="about-security.html">about security;</a></li>
+    <main class="dreaming-security">
+      <h1>dreaming security</h1>
+      <article id="database-security">
+        <h2 class="subheading">DB Security</h2>
+        <ul id="list-of-database-security-tips">
+          <li>
+            <a href="https://www.php.net/manual/en/security.database.design.php"
+              >User/Application Instance permissions are very effective</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.php.net/manual/en/security.database.storage.php"
+              >Encryption at rest</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.php.net/manual/en/security.database.connection.php"
+              >Secure connections</a
+            >
+          </li>
         </ul>
-      </nav>
+      </article>
+      <nav><a href="./">go back;</a></nav>
     </main>
     <hr />
     <footer>
@@ -98,15 +128,6 @@
     </footer>
   </body>
   <script type="text/javascript">
-    const clock = (timeEl) => {
-      const date = new Date();
-      timeEl.textContent = date.toLocaleTimeString();
-      timeEl.setAttribute("datetime", date.toISOString());
-    };
-    const timeElement = document.querySelector("#time");
-    setInterval(clock, 1000, timeElement);
-  </script>
-  <script type="text/javascript">
-    "serviceWorker" in navigator && navigator.serviceWorker.register("./sw.js");
+    "serviceWorker" in navigator && navigator.serviceWorker.register("/sw.js");
   </script>
 </html>

@@ -1,112 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-      <title>ericfortmeyer.dev | projects</title>
-      <meta charset="utf-8" />
-      <meta name="theme-color" content="#ffffff" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <meta name="author" content="Eric Fortmeyer" />
-      <meta name="description" content="Eric Fortmeyer"s projects" />
-      <link rel="manifest" href="/manifest.json" />
-      <link rel="icon" href="/resources/images/icon-192.png" />
-      <link rel="apple-touch-icon" href="/resources/images/icon-192.png" />
-      <style>@font-face{font-family: "Custom Typewriter";font-display: swap;src: url("/resources/fonts/veteran-typewriter.ttf");}body {font-family: "Custom Typewriter", serif;}.site-title {font-size: 11vw;margin: 30vh auto;text-align: center}a {color: saddlebrown;}nav {font-size: 2.5rem;text-align: center;margin: 5rem auto;} .projects a {display: inline-block;font-size: 1.5em;margin: 3rem auto;transition: all 400ms;}a:hover {color: lightblue}ul {list-style-type: none; padding-left: 0;}h1, h2, h3, h4 {text-align: center}</style>
-      <style>body { line-height: 1.4;}</style>
-      <style>
-        .projects {
-            font-size: 2.5em;
-            margin: 5rem 3vw;
+    <title>ericfortmeyer.dev | projects</title>
+    <meta charset="utf-8" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Eric Fortmeyer" />
+    <meta name="description" content="Eric Fortmeyer"s projects" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="icon" href="resources/images/icon-192.png" />
+    <link rel="apple-touch-icon" href="resources/images/icon-192.png" />
+    <style>
+      @font-face {
+        font-family: "Custom Typewriter";
+        font-display: swap;
+        src: url("resources/fonts/veteran-typewriter.ttf");
+      }
+      body {
+        font-family: "Custom Typewriter", serif;
+      }
+      .site-title {
+        font-size: 11vw;
+        margin: 30vh auto;
+        text-align: center;
+      }
+      a {
+        color: saddlebrown;
+      }
+      nav {
+        font-size: 2.5rem;
+        text-align: center;
+        margin: 5rem auto;
+      }
+      .projects a {
+        display: inline-block;
+        font-size: 1.5em;
+        margin: 3rem auto;
+        transition: all 400ms;
+      }
+      a:hover {
+        color: lightblue;
+      }
+      ul {
+        list-style-type: none;
+      }
+      h1,
+      h2,
+      h3,
+      h4 {
+        text-align: center;
+      }
+      body {
+        line-height: 1.4;
+      }
+    </style>
+    <style>
+      .projects {
+        font-size: 2.5em;
+        margin: 5rem 3vw;
+      }
+      .projects > div {
+        position: relative;
+        margin-bottom: 2rem;
+        background-color: white;
+      }
+      .projects > div p {
+        padding: 2rem;
+      }
+      .projects > div:after,
+      .projects > div:before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        box-shadow: 0 0.5px 1.5px rgba(0, 0, 0, 0.4);
+      }
+      .project-link a {
+        text-decoration: none;
+      }
+      .projects img.project-logo {
+        margin-left: 0.5rem;
+        width: 1em;
+      }
+      .flex-container {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      @media only screen and (max-width: 500px) {
+        body {
+          font-size: 3vw;
         }
-        .projects > div {
-            position: relative;
-            margin-bottom: 2rem;
-            background-color: white;
-        }
-        .projects > div p {
-            padding: 2rem;
-        }
-        .projects > div:after,
-        .projects > div:before {
-            content: "";
-            position: absolute;
-            z-index: -1;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            box-shadow: 0 0.5px 1.5px rgba(0, 0, 0, 0.4);
-        }
-        .project-link a {
-            text-decoration: none;
-        }
-        .flex-container {
-            display: flex;
-            flex-wrap: wrap;
-        }
-        @media only screen and (max-width: 500px) {
-            body {
-                font-size: 3vw;
-            }
-        }
-      </style>      
+      }
+      #list-of-projects > li > h2 {
+        text-align: left;
+        margin-top: 8rem;
+      }
+    </style>
   </head>
   <body>
-      <main class="projects">
-            <article id="projects">
-                <h1>projects</h1>
-                <ul id="list-of-projects">
-                    <li>
-                        <div class="project-link">
-                                <a href="https://github.com/ericfortmeyer/baruch-scheduling/">Baruch-Scheduling</a>
-                        </div>
-                        <div class="description">
-                                A library of scheduling application modules
-                        </div>
-                    </li>
-                    <li>
-                        <div class="project-link">
-                            <p>
-                                <a href="https://github.com/ericfortmeyer/student-assignment-scheduler/">LAMM-Scheduler [abandoned]</a>
-                            </p>
-                        </div>
-                        <div class="description">
-                            <p>
-                                Community-driven software for scheduling LAMM assignments
-                            </p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="project-link">
-                            <p>
-                                <a style="color: gray">Rubix"s cube solver <span style="font-size:1rem">(coming soon)</span></a>
-                            </p>
-                        </div>
-                        <div class="description">
-                            <p>
-                                Determines the shortest path to solving the puzzle
-                            </p>
-                        </div>
-                    </li>
-                </ul>
-            </article>
-        <nav><a href="/">go back;</a></nav>
-      </main>
-      <hr />
-      <footer>
-        <p>&copy; 2023 - Eric Fortmeyer</p>
-        <p>WCAG Level AAA Compliant</p>
-        <p>
-          Achieved high website performance goals.  <a href="lighthouse-profile.html">See the results.</a>
-        </p>
-        <address>
+    <main class="projects">
+      <article id="projects">
+        <h1>projects</h1>
+        <ul id="list-of-projects">
+          <li>
+            <h2>
+              <img
+                src="https://php.net/images/logos/php-logo.svg"
+                alt="php"
+                width="128"
+              />
+            </h2>
             <ul>
-                <li><a href="mailto:e.fortmeyer01@gmail.com">e.fortmeyer01@gmail.com</a></li>
-                <li><a href="https://www.twitter.com/EricFortmeyer">Twitter handle</a></li>
+              <li>
+                <div class="project-link">
+                  <span
+                    ><img
+                      class="project-logo"
+                      alt="phpolar logo"
+                      src="https://raw.githubusercontent.com/phpolar/phpolar/main/phpolar.svg"
+                  /></span>
+                  <a href="https://github.com/phpolar/phpolar/">Phpolar</a>
+                </div>
+                <div class="description">A microframework for PHP projects</div>
+                <img
+                  src="http://poser.pugx.org/phpolar/phpolar/downloads"
+                  alt="total downloads of phpolar"
+                />
+              </li>
+              <li>
+                <div class="project-link">
+                  <span
+                    ><img
+                      class="project-logo"
+                      alt="phpolar logo"
+                      src="https://raw.githubusercontent.com/phpolar/phpolar/main/phpolar.svg"
+                  /></span>
+                  <a href="https://github.com/phpolar/pure-php/">Pure PHP</a>
+                </div>
+                <div class="description">
+                  A templating engine for pure PHP templates
+                </div>
+              </li>
+              <li>
+                <div class="project-link">
+                  <span
+                    ><img
+                      class="project-logo"
+                      alt="phpolar logo"
+                      src="https://raw.githubusercontent.com/phpolar/phpolar/main/phpolar.svg"
+                  /></span>
+                  <a href="https://github.com/phpolar/validators/"
+                    >Validators</a
+                  >
+                </div>
+                <div class="description">A set of property validators</div>
+              </li>
             </ul>
-        </address>
+          </li>
+          <li>
+            <h2>
+              <img
+                src="https://fsharp.org/img/logo/fsharp128.png"
+                alt="f sharp logo"
+                width="48"
+                height="48"
+              />
+              F#
+            </h2>
+            <ul>
+              <li>
+                <div class="project-link">
+                  <span
+                    ><img
+                      class="project-logo"
+                      alt="HODI logo"
+                      src="https://raw.githubusercontent.com/ericfortmeyer/HODI/master/hodi.png"
+                  /></span>
+                  <a href="https://github.com/ericfortmeyer/hodi/">HODI</a>
+                </div>
+                <div class="description">Higher Order Dependency Injection</div>
+                <img
+                  src="https://buildstats.info/nuget/HODI"
+                  alt="nuget info"
+                />
+              </li>
+              <li>
+                <div class="project-link">
+                  <a
+                    href="https://github.com/ericfortmeyer/AvailabilityPropertyChecker/"
+                    >AvailabilityPropertyChecker</a
+                  >
+                </div>
+                <div class="description">
+                  Property-based test for critical scheduling logic.
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </article>
+      <nav><a href="./">go back;</a></nav>
+    </main>
+    <hr />
+    <footer>
+      <p>&copy; 2023 - Eric Fortmeyer</p>
+      <p>WCAG Level AAA Compliant</p>
+      <p>
+        Achieved high website performance goals.
+        <a href="lighthouse-profile.html">See the results.</a>
+      </p>
+      <address>
+        <ul>
+          <li>
+            <a href="mailto:e.fortmeyer01@gmail.com">e.fortmeyer01@gmail.com</a>
+          </li>
+          <li>
+            <a href="https://www.twitter.com/EricFortmeyer">Twitter handle</a>
+          </li>
+        </ul>
+      </address>
     </footer>
   </body>
   <script type="text/javascript">
-    "serviceWorker" in navigator
-        && navigator.serviceWorker.register("/sw.js");
+    "serviceWorker" in navigator && navigator.serviceWorker.register("/sw.js");
   </script>
 </html>
