@@ -105,4 +105,11 @@ h3.subheading {
     padding-inline-start: 0;
   }
 }
-.dreaming-in-php {font-size: 2.5em;margin: 5rem 3vw;}.dreaming-in-php ul,.dreaming-in-php ol{font-size: 1.75rem;font-family: "Times New Roman", Times, serif;}li {margin-bottom: 1rem;}@media only screen and (max-width: 500px) {body {font-size: 3vw;}}h3.subheading {color: #3e3e3e;}ul.dense-list *, ol.dense-list * {margin: 0;}@media only screen and (max-width: 500px) {code.multiline {font-size: 4.3vw;}}code.multiline {display: inline-block; padding: 2rem 1rem; max-width: 70vw;}code span.operator {color: #007700;}code span.symbol {color: #0000BB;}code {background-color: #f3f3f3;padding: 0.45rem; display: inline-block;}code span.string {color: #DD0000}
+.symbol {color: green}
+.operator {color: #007700}
+.var {color: #0000BB}
+.string {color: #DD0000}
+.text-black {color: #000}
+.text-gray {color: gray}
+.text-purple {color: purple}
+.break-word {word-wrap:break-word;} .dreaming-in-php {font-size: 2.5em;margin: 5rem 3vw;}.dreaming-in-php ul,.dreaming-in-php ol{font-size: 1.75rem;font-family: "Times New Roman", Times, serif;}li {margin-bottom: 1rem;}@media only screen and (max-width: 500px) {body {font-size: 3vw;}}h3.subheading {color: #3e3e3e;}ul.dense-list *, ol.dense-list * {margin: 0;}@media only screen and (max-width: 500px) {code.multiline {font-size: 4.3vw;}}code.multiline {display: inline-block; padding: 2rem 1rem; max-width: 70vw;}code span.operator {color: #007700;}code span.symbol {color: #0000BB;}code {background-color: #f3f3f3;padding: 0.45rem; display: inline-block;}code span.string {color: #DD0000}

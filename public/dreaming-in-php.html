@@ -80,7 +80,7 @@
                 <li>Checking <a href="https://www.php.net/manual/en/function.isset">isset</a> on a hash set is much faster than <a href="https://www.php.net/manual/en/function.in-array">in_array</a>.</li>
                 <li><code><span class="symbol">$a</span> <span class="operator">+=</span> <span class="symbol">3</span></code> results in faster execution than <code><span class="symbol">$a</span> <span class="operator">=</span> <span class="symbol">$a</span> <span class="operator">+</span> <span class="symbol">3</span></code>  <a href="https://www.php.net/manual/en/language.expressions.php">See this.</a></li>
                 <li>The spaceship operator can be used for value object comparison.</li>
-                <li>Be wary of <span style="word-wrap:break-word;">incrementing/decrementing</span> float constants.  <a href="https://www.php.net/manual/en/language.operators.increment.php#109621">See this.</a></li>
+                <li>Be wary of <span class="break-word">incrementing/decrementing</span> float constants.  <a href="https://www.php.net/manual/en/language.operators.increment.php#109621">See this.</a></li>
                 <li>Switch statements will execute the statement for each case &lt;= target value if there is no break statement.</li>
                 <li>
                     <a href="https://www.php.net/manual/en/control-structures.switch.php">Switch statements</a> may execute faster than a series of if statements.  This is because the condition is evaluated only once and the result is compared to each case statement.
@@ -89,10 +89,10 @@
                 <li>Recursive function/ method calls with over 100-200 recursion levels can smash the stack and cause a termination of the current script. <a href="https://www.php.net/manual/en/functions.user-defined.php">See this.</a></li>
                 <li>Objects can be dynamically extended (given added behavior/functionality at-run-time) using <a href="https://www.php.net/manual/en/closure.bindto.php">Closure::bindTo</a></li>
                 <li><code><span class="symbol">$this</span></code> is a psuedo-variable.</li>
-                <li><code><span style="color: #007700">-&gt;</span></code> is called the Object Operator.</li>
+                <li><code><span class="operator">-&gt;</span></code> is called the Object Operator.</li>
                 <li>Constructor methods are exempt from signature compatibility rules when extended.</li>
                 <li>If you assign a closure/anonymous function to a property, you have to enclose it in parentheses to call it.
-                    <code><span style="color: #007700">(</span><span style="color: #0000BB">$obj</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">bar</span><span style="color: #007700">)();
+                    <code><span class="operator">(</span><span class="var">$obj</span><span class="operator">-&gt;</span><span class="var">bar</span><span class="operator">)();
                     </code>
                 </li>
                 <li>Constant expressions must be used to initialize a class property.</li>
@@ -123,12 +123,12 @@
                     Use the <code><span class="symbol">extends</span></code> keyword to combine interfaces.
                     <br />
                     <br />
-                    <code class="multiline"><span style="color: #000000">
-                        <span style="color: #007700">interface&nbsp;</span><span style="color: #0000BB">A&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">foo</span><span style="color: #007700">();<br />}
+                    <code class="multiline"><span class="text-black">
+                        <span class="operator">interface&nbsp;</span><span class="var">A&nbsp;</span><span class="operator">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span class="var">foo</span><span class="operator">();<br />}
                             <br/>
-                            interface&nbsp;</span><span style="color: #0000BB">B&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">bar</span><span style="color: #007700">();<br />}
+                            interface&nbsp;</span><span class="var">B&nbsp;</span><span class="operator">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span class="var">bar</span><span class="operator">();<br />}
                             <br />
-                            interface&nbsp;</span><span style="color: #0000BB">C&nbsp;</span><span style="color: #007700">extends&nbsp;</span><span style="color: #0000BB">A</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">B&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">baz</span><span style="color: #007700">();<br />}</span><span style="color: #0000BB"></span>
+                            interface&nbsp;</span><span class="var">C&nbsp;</span><span class="operator">extends&nbsp;</span><span class="var">A</span><span class="operator">,&nbsp;</span><span class="var">B&nbsp;</span><span class="operator">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span class="var">baz</span><span class="operator">();<br />}</span><span class="var"></span>
                         </span>
                     </code>
                 </li>
@@ -157,8 +157,8 @@
                     <br />
                     <br />
                     <code class="multiline">
-                        <span style="color: #000000">
-                        <span style="color: #007700">function&nbsp;&amp;</span><span style="color: #0000BB">collector</span><span style="color: #007700">()&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;static&nbsp;</span><span style="color: #0000BB">$collection&nbsp;</span><span style="color: #007700">=&nbsp;[];<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$collection</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">$collection&nbsp;</span><span style="color: #007700">=&nbsp;&amp;</span><span style="color: #0000BB">collector</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$collection</span><span style="color: #007700">[]&nbsp;=&nbsp;</span><span style="color: #DD0000">"foo"</span><span style="color: #007700">;<br /></span>
+                        <span class="text-black">
+                        <span class="operator">function&nbsp;&amp;</span><span class="var">collector</span><span class="operator">()&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;static&nbsp;</span><span class="var">$collection&nbsp;</span><span class="operator">=&nbsp;[];<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span class="var">$collection</span><span class="operator">;<br />}<br /></span><span class="var">$collection&nbsp;</span><span class="operator">=&nbsp;&amp;</span><span class="var">collector</span><span class="operator">();<br /></span><span class="var">$collection</span><span class="operator">[]&nbsp;=&nbsp;</span><span class="string">"foo"</span><span class="operator">;<br /></span>
                         </span>
                     </code>
                 </li>
@@ -193,11 +193,11 @@
             <dl>
                 <dt>Black</dt>
                 <dd>In use or free.</dd>
-                <dt style="color:gray">Grey</dt>
+                <dt class="gray">Grey</dt>
                 <dd>Possible member of cycle.</dd>
                 <dt>White</dt>
                 <dd>Member of garbage cycle.</dd>
-                <dt style="color:purple">Purple</dt>
+                <dt class="purple">Purple</dt>
                 <dd>Possible root of cycle.</dd>
             </dl>
             <p><a href="http://researcher.watson.ibm.com/researcher/files/us-bacon/Bacon01Concurrent.pdf">See this paper.</a></p>
