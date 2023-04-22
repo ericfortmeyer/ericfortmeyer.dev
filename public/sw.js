@@ -4,7 +4,7 @@ const filesToCache = [
     '/resources/images/icon-512.png',
     '/resources/images/IMG_7563.webp',
     '/resources/fonts/veteran-typewriter.ttf',
-    '/resources/stylesheets/style.css',
+    '/resources/stylesheets/style.min.css',
     '/resources/js/clock.js',
     '/resources/js/hodiProjectData.js',
     '/resources/js/loadSW.js',
