@@ -1,5 +1,15 @@
 #! /usr/bin/env bash
 
-sudo rsync -vrtp ericfortmeyer.dev/public/ /var/www/html/
-sudo mv server/nginx.conf /etc/nginx/sites-available/ericfortmeyer.conf
+HOSTNAME=ericfortmeyer.dev
+
+sudo rsync \
+	--verbose \
+	--times \
+	--perms \
+	--progress \
+	--recursive \
+	--exclude "scripts" \
+	--exclude "server" \
+	"$HOME/$HOSTNAME/public/" "/var/www/html/"
+sudo cp "$HOME/$HOSTNAME/server/nginx.conf" "/etc/nginx/sites-available/$HOSTNAME"
 

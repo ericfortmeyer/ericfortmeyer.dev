@@ -1,11 +1,16 @@
 #! /usr/bin/env bash
 
 HOSTNAME=ericfortmeyer.dev
+PROJECT_CATEGORY=ericfortmeyer
+SERVER_HOSTNAME=baruq
 
 rsync \
-  --progress \
-  --verbose \
-  --compress \
-  --recursive \
-  -e "ssh -o StrictHostKeyChecking=no" \
-  ~/Projects/ericfortmeyer/$HOSTNAME/ root@baruq:$HOME/$HOSTNAME/
+	--verbose \
+  	--progress \
+	--times \
+	--perms \
+  	--compress \
+  	--recursive \
+	--exclude ".git" \
+  	-e "ssh -o StrictHostKeyChecking=no" \
+  	"$HOME/Projects/$PROJECT_CATEGORY/$HOSTNAME/" "$USER@$SERVER_HOSTNAME:$HOME/$HOSTNAME/"
