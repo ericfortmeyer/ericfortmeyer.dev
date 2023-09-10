@@ -2,16 +2,16 @@
 <html lang="en">
   <head>
       <title>ericfortmeyer.dev | Dreaming in PHP</title>
-      <meta name="theme-color" content="#ffffff" />
-      <meta charset="utf-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <meta name="author" content="Eric Fortmeyer" />
-      <meta name="description" content="PHP Pro Tips and Gotchas" />
-      <meta name="keywords" content="PHP,tips,pro,advanced" />
-      <link rel="manifest" href="manifest.json" />
-      <link rel="icon" href="resources/images/icon-192.png" />
-      <link rel="apple-touch-icon" href="resources/images/icon-192.png" />
-      <link rel="stylesheet" href="resources/stylesheets/style.min.css" />
+      <meta name="theme-color" content="#ffffff">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="author" content="Eric Fortmeyer">
+      <meta name="description" content="PHP Pro Tips and Gotchas">
+      <meta name="keywords" content="PHP,tips,pro,advanced">
+      <link rel="manifest" href="manifest.json">
+      <link rel="icon" href="resources/images/icon-192.png">
+      <link rel="apple-touch-icon" href="resources/images/icon-192.png">
+      <link rel="stylesheet" href="resources/stylesheets/style.min.css">
   </head>
   <body>
     <main class="dreaming-in-php">
@@ -92,8 +92,7 @@
                 <li><code><span class="operator">-&gt;</span></code> is called the Object Operator.</li>
                 <li>Constructor methods are exempt from signature compatibility rules when extended.</li>
                 <li>If you assign a closure/anonymous function to a property, you have to enclose it in parentheses to call it.
-                    <code><span class="operator">(</span><span class="var">$obj</span><span class="operator">-&gt;</span><span class="var">bar</span><span class="operator">)();
-                    </code>
+                    <code><span class="operator">(</span><span class="var">$obj</span><span class="operator">-&gt;</span><span class="var">bar</span><span class="operator">)();</span></code>
                 </li>
                 <li>Constant expressions must be used to initialize a class property.</li>
                 <li>Destructors | Be aware:
@@ -121,14 +120,14 @@
                 </li>
                 <li>
                     Use the <code><span class="symbol">extends</span></code> keyword to combine interfaces.
-                    <br />
-                    <br />
+                    <br>
+                    <br>
                     <code class="multiline"><span class="text-black">
-                        <span class="operator">interface&nbsp;</span><span class="var">A&nbsp;</span><span class="operator">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span class="var">foo</span><span class="operator">();<br />}
-                            <br/>
-                            interface&nbsp;</span><span class="var">B&nbsp;</span><span class="operator">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span class="var">bar</span><span class="operator">();<br />}
-                            <br />
-                            interface&nbsp;</span><span class="var">C&nbsp;</span><span class="operator">extends&nbsp;</span><span class="var">A</span><span class="operator">,&nbsp;</span><span class="var">B&nbsp;</span><span class="operator">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span class="var">baz</span><span class="operator">();<br />}</span><span class="var"></span>
+                        <span class="operator">interface&nbsp;</span><span class="var">A&nbsp;</span><span class="operator">{<br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span class="var">foo</span><span class="operator">();<br>}
+                            <br>
+                            interface&nbsp;</span><span class="var">B&nbsp;</span><span class="operator">{<br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span class="var">bar</span><span class="operator">();<br>}
+                            <br>
+                            interface&nbsp;</span><span class="var">C&nbsp;</span><span class="operator">extends&nbsp;</span><span class="var">A</span><span class="operator">,&nbsp;</span><span class="var">B&nbsp;</span><span class="operator">{<br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span class="var">baz</span><span class="operator">();<br>}</span><span class="var"></span>
                         </span>
                     </code>
                 </li>
@@ -154,11 +153,11 @@
                 <li>If you assign, pass, or return an undefined variable by reference, it will get created.</li>
                 <li>If you assign a reference to a variable declared global inside a function, the reference will be visible only inside the function. You can avoid this by using the <code><span class="symbol">$GLOBALS</span></code> array.</li>
                 <li>References inside arrays are potentially dangerous. Doing a normal (not by reference) assignment with a reference on the right side does not turn the left side into a reference, but references inside arrays are preserved in these normal assignments. This also applies to function calls where the array is passed by value. In other words, the reference behavior of arrays is defined in an element-by-element basis; the reference behavior of individual elements is dissociated from the reference status of the array container.
-                    <br />
-                    <br />
+                    <br>
+                    <br>
                     <code class="multiline">
                         <span class="text-black">
-                        <span class="operator">function&nbsp;&amp;</span><span class="var">collector</span><span class="operator">()&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;static&nbsp;</span><span class="var">$collection&nbsp;</span><span class="operator">=&nbsp;[];<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span class="var">$collection</span><span class="operator">;<br />}<br /></span><span class="var">$collection&nbsp;</span><span class="operator">=&nbsp;&amp;</span><span class="var">collector</span><span class="operator">();<br /></span><span class="var">$collection</span><span class="operator">[]&nbsp;=&nbsp;</span><span class="string">"foo"</span><span class="operator">;<br /></span>
+                        <span class="operator">function&nbsp;&amp;</span><span class="var">collector</span><span class="operator">()&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;static&nbsp;</span><span class="var">$collection&nbsp;</span><span class="operator">=&nbsp;[];<br>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span class="var">$collection</span><span class="operator">;<br>}<br></span><span class="var">$collection&nbsp;</span><span class="operator">=&nbsp;&amp;</span><span class="var">collector</span><span class="operator">();<br></span><span class="var">$collection</span><span class="operator">[]&nbsp;=&nbsp;</span><span class="string">"foo"</span><span class="operator">;<br></span>
                         </span>
                     </code>
                 </li>
@@ -204,9 +203,9 @@
         </article>
         <a href="./">go back;</a>
     </main>
-    <hr />
+    <hr>
     <footer>
-        <time id="time"></time>
+        <time id="time">00:00</time>
         <ul>
           <li>&copy; 2023 - Eric Fortmeyer</li>
           <li>WCAG Level AAA Compliant</li>
@@ -217,6 +216,6 @@
           <p><a href="https://www.twitter.com/EricFortmeyer">Twitter handle</a></p>
         </address>
       </footer>
+      <script src="resources/js/loadSW.js" async></script>
   </body>
-  <script type="text/javascript" src="resources/js/loadSW.js" async></script>
 </html>
