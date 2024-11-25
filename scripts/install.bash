@@ -8,6 +8,7 @@ sudo rsync \
 	--perms \
 	--progress \
 	--recursive \
+	--exclude ".idea" \
 	--exclude "scripts" \
 	--exclude "server" \
 	"$HOME/$HOSTNAME/public/" "/var/www/html/"
