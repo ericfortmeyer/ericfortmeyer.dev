@@ -13,5 +13,5 @@ rsync \
   	--recursive \
 	--exclude ".git" \
 	--exclude ".idea" \
-  	-e "ssh -o StrictHostKeyChecking=no" \
   	"$HOME/Projects/$PROJECT_CATEGORY/$HOSTNAME/" "$USER@$SERVER_HOSTNAME:$HOME/$HOSTNAME/"
+ssh "$USER@$SERVER_HOSTNAME" "bash --login --restricted -s" < ./scripts/install.bash

@@ -1,228 +1,373 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-      <title>ericfortmeyer.dev | Dreaming in PHP</title>
-      <meta name="theme-color" content="#ffffff">
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="author" content="Eric Fortmeyer">
-      <meta name="description" content="PHP Pro Tips and Gotchas">
-      <meta name="keywords" content="PHP,tips,pro,advanced">
-      <link rel="manifest" href="manifest.json">
-      <link rel="icon" href="resources/images/icon-192.png">
-      <link rel="apple-touch-icon" href="resources/images/icon-192.png">
-      <link rel="stylesheet" href="resources/stylesheets/style.min.css">
-      <link
-          rel="preload"
-          as="script"
-          type="text/javascript"
-          href="resources/js/clock.js"
-      >
+    <title>ericfortmeyer.dev | Dreaming in PHP</title>
+    <meta name="theme-color" content="#ffffff" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Eric Fortmeyer" />
+    <meta name="description" content="PHP Pro Tips and Gotchas" />
+    <meta name="keywords" content="PHP,tips,pro,advanced" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="icon" href="resources/images/icon-192.png" />
+    <link rel="apple-touch-icon" href="resources/images/icon-192.png" />
+    <link rel="stylesheet" href="resources/stylesheets/style.min.css" />
+    <link rel="preload" as="script" type="text/javascript" href="resources/js/clock.js" />
   </head>
   <body>
     <main class="dreaming-in-php">
-        <h1>dreaming in PHP</h1>
-        <article id="pro-tips">
-            <h2 class="subheading">PHP Pro Tips and Gotchas</h2>
-            <ol>
-                <li>
-                    Using the extract function on an associative array that has a key "this" will cause an error.
-                </li>
-                <li>
-                    Use <code><span class="operator">+=</span></code> to append the values in one array to another without having to initalize a new variable.<code><span class="symbol">$oldArray</span><span class="operator"> += </span><span class="symbol">[</span> <span class="string">"some"</span> <span class="operator">=&gt;</span> <span class="string">"thing"</span> <span class="symbol">,</span> <span class="string">"another"</span> <span class="operator">=&gt;</span> <span class="string">"thing"</span> <span class="symbol">]</span></code>
-                </li>
-                <li>
-                    <a href="https://stackoverflow.com/questions/1179874/what-is-the-difference-between-bindparam-and-bindvalue#answer-1179927">bindParam vs bindValue -> bindParam is byRef meaning the value of the variable can change after calling bindParam</a>
-                </li>
-                <li>
-                    <a href="https://stackoverflow.com/questions/3683746/escaping-mysql-wild-cards">LIKE expressions may expose a SQL Injection vulnerability</a>
-                </li>
-                <li>
-                    <a href="https://www.php.net/manual/en/pdo.constants.php#pdo.constants.fetch-class">PDO:FETCH_CLASS</a> will use <a href="https://www.php.net/manual/en/language.oop5.overloading.php#language.oop5.overloading.members">__set()</a> magic method when it encounters an undefined property.  Properties are case-sensitive.
-                </li>
-                <li>
-                    Autoloading classes is quick to implement, less error-prone than include/require, and does not have a significant impact on performance.  <a href="https://www.php.net/manual/en/language.oop5.autoload.php#120258">Easy PSR-4 Implementation</a>
-                </li>
-                <li>
-                    PHP has <a href="https://www.php.net/manual/en/language.types.integer.php#example-42">integer literals</a>, "not a number"(<code><span class="symbol">NAN</span></code>), negative and positive infinity(<code><span class="symbol">INF</span></code>, <code><span class="operator">-</span><span class="symbol">INF</span></code>), and min/max integer and float values.
-                </li>
-                <li>
-                    Unserializing values can be dangerous <a href="https://www.php.net/manual/en/function.unserialize.php">because it"s so complicated.</a>
-                </li>
-                <li>
-                    <a href="https://www.php.net/manual/en/language.operators.precedence.php">Operator Precedence</a>
-                    <ol class="dense-list">
-                        <li>exponent</li>
-                        <li>types, increment, decrement</li>
-                        <li>multiplication, division, modulo</li>
-                        <li>addition, subtraction, string concatenation</li>
-                        <li>bit shift</li>
-                        <li>comparison</li>
-                        <li>equality, spaceship</li>
-                        <li>other bitwise operators (and, or, xor, not)</li>
-                    </ol>
-                </li>
-                <li>
-                    Some considerations for <a href="https://www.php.net/manual/en/features.persistent-connections.php">persistent connections</a> are:
-                    <ol class="dense-list">
-                        <li>Busy servers may exhaust max connection settings.</li>
-                        <li>Will only help on multi-threaded/process servers (IIS, Apache).</li>
-                    </ol>
-                </li>
-                <li>
-                    <a href="https://www.php.net/manual/en/features.file-upload.post-method.php#example-421">File Upload -- MAX_FILE_SIZE hidden input</a>
-                </li>
-                <li>File uploads must be multipart/form-data.</li>
-                <li>
-                    <a href="https://www.php.net/manual/en/features.gc.collecting-cycles.php">Possible memory leaks -- long-running processes vulnerable</a>
-                </li>
-                <li>
-                    <a href="https://www.php.net/manual/en/outcontrol.examples.rewrite.php">Rewriting output : )</a> can programmatically add vars to forms and urls = ) – CSRF Mitigation, filters, error messages, etc.
-                </li>
-                <li>
-                    For benchmarks, use <a href="https://www.php.net/manual/en/function.hrtime">hrtime</a> instead of <a href="https://www.php.net/manual/en/function.microtime">microtime</a>.
-                </li>
-                <li>The range function can be used to list each letter of the alphabet or range of characters.</li>
-                <li>Checking <a href="https://www.php.net/manual/en/function.isset">isset</a> on a hash set is much faster than <a href="https://www.php.net/manual/en/function.in-array">in_array</a>.</li>
-                <li><code><span class="symbol">$a</span> <span class="operator">+=</span> <span class="symbol">3</span></code> results in faster execution than <code><span class="symbol">$a</span> <span class="operator">=</span> <span class="symbol">$a</span> <span class="operator">+</span> <span class="symbol">3</span></code>  <a href="https://www.php.net/manual/en/language.expressions.php">See this.</a></li>
-                <li>The spaceship operator can be used for value object comparison.</li>
-                <li>Be wary of <span class="break-word">incrementing/decrementing</span> float constants.  <a href="https://www.php.net/manual/en/language.operators.increment.php#109621">See this.</a></li>
-                <li>Switch statements will execute the statement for each case &lt;= target value if there is no break statement.</li>
-                <li>
-                    <a href="https://www.php.net/manual/en/control-structures.switch.php">Switch statements</a> may execute faster than a series of if statements.  This is because the condition is evaluated only once and the result is compared to each case statement.
-                </li>
-                <li>A semicolon can be used instead of a colon after a case in a switch statement.</li>
-                <li>Recursive function/ method calls with over 100-200 recursion levels can smash the stack and cause a termination of the current script. <a href="https://www.php.net/manual/en/functions.user-defined.php">See this.</a></li>
-                <li>Objects can be dynamically extended (given added behavior/functionality at-run-time) using <a href="https://www.php.net/manual/en/closure.bindto.php">Closure::bindTo</a></li>
-                <li><code><span class="symbol">$this</span></code> is a psuedo-variable.</li>
-                <li><code><span class="operator">-&gt;</span></code> is called the Object Operator.</li>
-                <li>Constructor methods are exempt from signature compatibility rules when extended.</li>
-                <li>If you assign a closure/anonymous function to a property, you have to enclose it in parentheses to call it.
-                    <code><span class="operator">(</span><span class="var">$obj</span><span class="operator">-&gt;</span><span class="var">bar</span><span class="operator">)();</span></code>
-                </li>
-                <li>Constant expressions must be used to initialize a class property.</li>
-                <li>Destructors | Be aware:
-                    <ol>
-                        <li>Calling exit in a destructor will prevent other destructors from executing.</li>
-                        <li>The working directory in the script shutdown phase can be different with some SAPIs.</li>
-                        <li>Attempting to throw an exception from a destructor causes a fatal error.</li>
-                    </ol>
-                </li>
-                <li>Classes of the same type can access each other"s private/protected members.</li>
-                <li>Visibility of a classes members can be relaxed but not restricted.</li>
-                <li>Scope Resolution Operator (::) is also known as Paamayim Nekudotayim.</li>
-                <li>It"s possible to reference the class using a variable. The variable"s value can not be a keyword (e.g. 
-                    <code><span class="symbol">self</span></code>,
-                    <code><span class="symbol">parent</span></code>
-                    and  
-                    <code><span class="symbol">static</span></code>).
-                </li>
-                <li>A type declaration is considered more specific in the following case:
-                    <ol>
-                        <li>A type is removed from a union type.</li>
-                        <li>A class type is changed to a child class type.</li>
-                        <li>A float is changed to int.</li>
-                    </ol>
-                </li>
-                <li>
-                    Use the <code><span class="symbol">extends</span></code> keyword to combine interfaces.
-                    <br>
-                    <br>
-                    <code class="multiline"><span class="text-black">
-                        <span class="operator">interface&nbsp;</span><span class="var">A&nbsp;</span><span class="operator">{<br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span class="var">foo</span><span class="operator">();<br>}
-                            <br>
-                            interface&nbsp;</span><span class="var">B&nbsp;</span><span class="operator">{<br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span class="var">bar</span><span class="operator">();<br>}
-                            <br>
-                            interface&nbsp;</span><span class="var">C&nbsp;</span><span class="operator">extends&nbsp;</span><span class="var">A</span><span class="operator">,&nbsp;</span><span class="var">B&nbsp;</span><span class="operator">{<br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span class="var">baz</span><span class="operator">();<br>}</span><span class="var"></span>
-                        </span>
-                    </code>
-                </li>
-                <li>
-                    Nesting an anonymous class within another class does not give it access to any private or protected methods or properties of that outer class. In order to use the outer class"s protected properties or methods, the anonymous class can extend the outer class. To use the private properties of the outer class in the anonymous class, they must be passed through its constructor
-                </li>
-                <li>
-                    Fully qualified names (i.e. names starting with a backslash) are not allowed in namespace declarations, because such constructs are interpreted as relative namespace expressions.
-                </li>
-                <li>Methods can be declared as <code><span class="symbol">final</span></code>.</li>
-                <li>More precisely, late static bindings work by storing the class named in the last "non-forwarding call". In case of static method calls, this is the class explicitly named (usually the one on the left of the :: operator); in case of non static method calls, it is the class of the object. A "forwarding call" is a static one that is introduced by 
-                    <code><span class="symbol">self</span><span class="operator">::</span></code>, 
-                    <code><span class="symbol">parent</span><span class="operator">::</span></code>, 
-                    <code><span class="symbol">static</span><span class="operator">::</span></code>,
-                    or, if going up in the class hierarchy, <a href="https://www.php.net/manual/en/function.forward-static-call">forward_static_call()</a>. The function 
-                    <a href="https://www.php.net/manual/en/function.get-called-class">get_called_class()</a> 
-
-                    can be used to retrieve a string with the name of the called class and <code><span class="symbol">static</span><span class="operator">::</span></code> introduces its scope.</li>
-                <li>"Late static bindings" was named with an internal perspective in mind. "Late binding" comes from the fact that <code><span class="symbol">static</span><span class="operator">::</span></code> will not be resolved using the class where the method is defined but it will rather be computed using runtime information. It was also called a "static binding" as it can be used for (but is not limited to) static method calls.</li>
-                <li>A reference is required to write to the same object property.  Variables whose values are set to an object can read from the same properties.</li>
-                <li>One notable interaction is between the finally block and a return statement. If a return statement is encountered inside either the try or the catch blocks, the finally block will still be executed. Moreover, the return statement is evaluated when encountered, but the result will be returned after the finally block is executed. Additionally, if the finally block also contains a return statement, the value from the finally block is returned.</li>
-                <li>Exceptions cannot be cloned. Attempting to clone an <code><span class="symbol">Exception</span></code> will result in a fatal <code><span class="symbol">E_ERROR</span></code> error.</li>
-                <li>If you assign, pass, or return an undefined variable by reference, it will get created.</li>
-                <li>If you assign a reference to a variable declared global inside a function, the reference will be visible only inside the function. You can avoid this by using the <code><span class="symbol">$GLOBALS</span></code> array.</li>
-                <li>References inside arrays are potentially dangerous. Doing a normal (not by reference) assignment with a reference on the right side does not turn the left side into a reference, but references inside arrays are preserved in these normal assignments. This also applies to function calls where the array is passed by value. In other words, the reference behavior of arrays is defined in an element-by-element basis; the reference behavior of individual elements is dissociated from the reference status of the array container.
-                    <br>
-                    <br>
-                    <code class="multiline">
-                        <span class="text-black">
-                        <span class="operator">function&nbsp;&amp;</span><span class="var">collector</span><span class="operator">()&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;static&nbsp;</span><span class="var">$collection&nbsp;</span><span class="operator">=&nbsp;[];<br>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span class="var">$collection</span><span class="operator">;<br>}<br></span><span class="var">$collection&nbsp;</span><span class="operator">=&nbsp;&amp;</span><span class="var">collector</span><span class="operator">();<br></span><span class="var">$collection</span><span class="operator">[]&nbsp;=&nbsp;</span><span class="string">"foo"</span><span class="operator">;<br></span>
-                        </span>
-                    </code>
-                </li>
-                <li>
-                    There are three scenarios where a <code><span class="symbol">TypeError</span></code> may be thrown. The first is where the argument type being passed to a function does not match its corresponding declared parameter type. The second is where a value being returned from a function does not match the declared function return type. The third is where an invalid number of arguments are passed to a built-in PHP function (strict mode only)
-                </li>
-                <li>
-                    <a href="https://www.php.net/manual/en/security.variables.php">User Submitted Data:</a>
-                    <ul>
-                        <li>Will this script only affect the intended files?</li>
-                        <li>Can unusual or undesirable data be acted upon?</li>
-                        <li>Can this script be used in unintended ways?</li>
-                        <li>Can this be used in conjunction with other scripts in a negative manner?</li>
-                        <li>Will any transactions be adequately logged?</li>
-                    </ul>
-                </li>
+      <h1>dreaming in PHP</h1>
+      <article id="pro-tips">
+        <h2 class="subheading">PHP Pro Tips and Gotchas</h2>
+        <ol>
+          <li>Using the extract function on an associative array that has a key "this" will cause an error.</li>
+          <li>
+            Use <code><span class="operator">+=</span></code> to append the values in one array to another without
+            having to initalize a new variable.<code
+              ><span class="symbol">$oldArray</span><span class="operator"> += </span><span class="symbol">[</span>
+              <span class="string">"some"</span> <span class="operator">=&gt;</span>
+              <span class="string">"thing"</span> <span class="symbol">,</span> <span class="string">"another"</span>
+              <span class="operator">=&gt;</span> <span class="string">"thing"</span>
+              <span class="symbol">]</span></code
+            >
+          </li>
+          <li>
+            <a
+              href="https://stackoverflow.com/questions/1179874/what-is-the-difference-between-bindparam-and-bindvalue#answer-1179927"
+              >bindParam vs bindValue -> bindParam is byRef meaning the value of the variable can change after calling
+              bindParam</a
+            >
+          </li>
+          <li>
+            <a href="https://stackoverflow.com/questions/3683746/escaping-mysql-wild-cards"
+              >LIKE expressions may expose a SQL Injection vulnerability</a
+            >
+          </li>
+          <li>
+            <a href="https://www.php.net/manual/en/pdo.constants.php#pdo.constants.fetch-class">PDO:FETCH_CLASS</a> will
+            use
+            <a href="https://www.php.net/manual/en/language.oop5.overloading.php#language.oop5.overloading.members"
+              >__set()</a
+            >
+            magic method when it encounters an undefined property. Properties are case-sensitive.
+          </li>
+          <li>
+            Autoloading classes is quick to implement, less error-prone than include/require, and does not have a
+            significant impact on performance.
+            <a href="https://www.php.net/manual/en/language.oop5.autoload.php#120258">Easy PSR-4 Implementation</a>
+          </li>
+          <li>
+            PHP has <a href="https://www.php.net/manual/en/language.types.integer.php#example-42">integer literals</a>,
+            "not a number"(<code><span class="symbol">NAN</span></code
+            >), negative and positive infinity(<code><span class="symbol">INF</span></code
+            >, <code><span class="operator">-</span><span class="symbol">INF</span></code
+            >), and min/max integer and float values.
+          </li>
+          <li>
+            Unserializing values can be dangerous
+            <a href="https://www.php.net/manual/en/function.unserialize.php">because it"s so complicated.</a>
+          </li>
+          <li>
+            <a href="https://www.php.net/manual/en/language.operators.precedence.php">Operator Precedence</a>
+            <ol class="dense-list">
+              <li>exponent</li>
+              <li>types, increment, decrement</li>
+              <li>multiplication, division, modulo</li>
+              <li>addition, subtraction, string concatenation</li>
+              <li>bit shift</li>
+              <li>comparison</li>
+              <li>equality, spaceship</li>
+              <li>other bitwise operators (and, or, xor, not)</li>
             </ol>
-        </article>
-        <article id="sessions">
-            <h3 class="subheading">Sessions</h3>
-            <ol>
-                <li>
-                    <a href="https://www.php.net/manual/en/features.session.security.management.php#features.session.security.management.non-adaptive-session">Use strict mode</a> should be enabled for sessions.
-                </li>
-                <li>A user id can be prefixed to a session id.  PHP &gt;= 7.1.0.</li>
-                <li>A timestamp should be used when generating a session id.</li>
-                <li>Use <a href="https://www.php.net/manual/en/features.session.security.management.php#features.session.security.management.session-locking">read only sessions</a> to mitigate DoS attacks.</li>
+          </li>
+          <li>
+            Some considerations for
+            <a href="https://www.php.net/manual/en/features.persistent-connections.php">persistent connections</a> are:
+            <ol class="dense-list">
+              <li>Busy servers may exhaust max connection settings.</li>
+              <li>Will only help on multi-threaded/process servers (IIS, Apache).</li>
             </ol>
-        </article>
-        <article id="garbage-collection-colors">
-            <h4>Garbage Collection colors:</h4>
-            <dl>
-                <dt>Black</dt>
-                <dd>In use or free.</dd>
-                <dt class="text-gray">Grey</dt>
-                <dd>Possible member of cycle.</dd>
-                <dt>White</dt>
-                <dd>Member of garbage cycle.</dd>
-                <dt class="text-purple">Purple</dt>
-                <dd>Possible root of cycle.</dd>
-            </dl>
-            <p><a href="http://researcher.watson.ibm.com/researcher/files/us-bacon/Bacon01Concurrent.pdf">See this paper.</a></p>
-        </article>
-        <a href="./">go back;</a>
+          </li>
+          <li>
+            <a href="https://www.php.net/manual/en/features.file-upload.post-method.php#example-421"
+              >File Upload -- MAX_FILE_SIZE hidden input</a
+            >
+          </li>
+          <li>File uploads must be multipart/form-data.</li>
+          <li>
+            <a href="https://www.php.net/manual/en/features.gc.collecting-cycles.php"
+              >Possible memory leaks -- long-running processes vulnerable</a
+            >
+          </li>
+          <li>
+            <a href="https://www.php.net/manual/en/outcontrol.examples.rewrite.php">Rewriting output : )</a> can
+            programmatically add vars to forms and urls = ) – CSRF Mitigation, filters, error messages, etc.
+          </li>
+          <li>
+            For benchmarks, use <a href="https://www.php.net/manual/en/function.hrtime">hrtime</a> instead of
+            <a href="https://www.php.net/manual/en/function.microtime">microtime</a>.
+          </li>
+          <li>The range function can be used to list each letter of the alphabet or range of characters.</li>
+          <li>
+            Checking <a href="https://www.php.net/manual/en/function.isset">isset</a> on a hash set is much faster than
+            <a href="https://www.php.net/manual/en/function.in-array">in_array</a>.
+          </li>
+          <li>
+            <code><span class="symbol">$a</span> <span class="operator">+=</span> <span class="symbol">3</span></code>
+            results in faster execution than
+            <code
+              ><span class="symbol">$a</span> <span class="operator">=</span> <span class="symbol">$a</span>
+              <span class="operator">+</span> <span class="symbol">3</span></code
+            >
+            <a href="https://www.php.net/manual/en/language.expressions.php">See this.</a>
+          </li>
+          <li>The spaceship operator can be used for value object comparison.</li>
+          <li>
+            Be wary of <span class="break-word">incrementing/decrementing</span> float constants.
+            <a href="https://www.php.net/manual/en/language.operators.increment.php#109621">See this.</a>
+          </li>
+          <li>
+            Switch statements will execute the statement for each case &lt;= target value if there is no break
+            statement.
+          </li>
+          <li>
+            <a href="https://www.php.net/manual/en/control-structures.switch.php">Switch statements</a> may execute
+            faster than a series of if statements. This is because the condition is evaluated only once and the result
+            is compared to each case statement.
+          </li>
+          <li>A semicolon can be used instead of a colon after a case in a switch statement.</li>
+          <li>
+            Recursive function/ method calls with over 100-200 recursion levels can smash the stack and cause a
+            termination of the current script.
+            <a href="https://www.php.net/manual/en/functions.user-defined.php">See this.</a>
+          </li>
+          <li>
+            Objects can be dynamically extended (given added behavior/functionality at-run-time) using
+            <a href="https://www.php.net/manual/en/closure.bindto.php">Closure::bindTo</a>
+          </li>
+          <li>
+            <code><span class="symbol">$this</span></code> is a psuedo-variable.
+          </li>
+          <li>
+            <code><span class="operator">-&gt;</span></code> is called the Object Operator.
+          </li>
+          <li>Constructor methods are exempt from signature compatibility rules when extended.</li>
+          <li>
+            If you assign a closure/anonymous function to a property, you have to enclose it in parentheses to call it.
+            <code
+              ><span class="operator">(</span><span class="var">$obj</span><span class="operator">-&gt;</span
+              ><span class="var">bar</span><span class="operator">)();</span></code
+            >
+          </li>
+          <li>Constant expressions must be used to initialize a class property.</li>
+          <li>
+            Destructors | Be aware:
+            <ol>
+              <li>Calling exit in a destructor will prevent other destructors from executing.</li>
+              <li>The working directory in the script shutdown phase can be different with some SAPIs.</li>
+              <li>Attempting to throw an exception from a destructor causes a fatal error.</li>
+            </ol>
+          </li>
+          <li>Classes of the same type can access each other"s private/protected members.</li>
+          <li>Visibility of a classes members can be relaxed but not restricted.</li>
+          <li>Scope Resolution Operator (::) is also known as Paamayim Nekudotayim.</li>
+          <li>
+            It"s possible to reference the class using a variable. The variable"s value can not be a keyword (e.g. 
+            <code><span class="symbol">self</span></code
+            >,
+            <code><span class="symbol">parent</span></code>
+            and  
+            <code><span class="symbol">static</span></code
+            >).
+          </li>
+          <li>
+            A type declaration is considered more specific in the following case:
+            <ol>
+              <li>A type is removed from a union type.</li>
+              <li>A class type is changed to a child class type.</li>
+              <li>A float is changed to int.</li>
+            </ol>
+          </li>
+          <li>
+            Use the <code><span class="symbol">extends</span></code> keyword to combine interfaces.
+            <br />
+            <br />
+            <code class="multiline"
+              ><span class="text-black">
+                <span class="operator">interface&nbsp;</span><span class="var">A&nbsp;</span
+                ><span class="operator">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span
+                ><span class="var">foo</span
+                ><span class="operator"
+                  >();<br />}
+                  <br />
+                  interface&nbsp;</span
+                ><span class="var">B&nbsp;</span
+                ><span class="operator">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span
+                ><span class="var">bar</span
+                ><span class="operator"
+                  >();<br />}
+                  <br />
+                  interface&nbsp;</span
+                ><span class="var">C&nbsp;</span><span class="operator">extends&nbsp;</span><span class="var">A</span
+                ><span class="operator">,&nbsp;</span><span class="var">B&nbsp;</span
+                ><span class="operator">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span
+                ><span class="var">baz</span><span class="operator">();<br />}</span><span class="var"></span>
+              </span>
+            </code>
+          </li>
+          <li>
+            Nesting an anonymous class within another class does not give it access to any private or protected methods
+            or properties of that outer class. In order to use the outer class"s protected properties or methods, the
+            anonymous class can extend the outer class. To use the private properties of the outer class in the
+            anonymous class, they must be passed through its constructor
+          </li>
+          <li>
+            Fully qualified names (i.e. names starting with a backslash) are not allowed in namespace declarations,
+            because such constructs are interpreted as relative namespace expressions.
+          </li>
+          <li>
+            Methods can be declared as <code><span class="symbol">final</span></code
+            >.
+          </li>
+          <li>
+            More precisely, late static bindings work by storing the class named in the last "non-forwarding call". In
+            case of static method calls, this is the class explicitly named (usually the one on the left of
+            the :: operator); in case of non static method calls, it is the class of the object. A "forwarding call" is
+            a static one that is introduced by 
+            <code><span class="symbol">self</span><span class="operator">::</span></code
+            >,  <code><span class="symbol">parent</span><span class="operator">::</span></code
+            >,  <code><span class="symbol">static</span><span class="operator">::</span></code
+            >, or, if going up in the class hierarchy,
+            <a href="https://www.php.net/manual/en/function.forward-static-call">forward_static_call()</a>. The
+            function  <a href="https://www.php.net/manual/en/function.get-called-class">get_called_class()</a>  can be
+            used to retrieve a string with the name of the called class and <code
+              ><span class="symbol">static</span><span class="operator">::</span></code
+            > introduces its scope.
+          </li>
+          <li>
+            "Late static bindings" was named with an internal perspective in mind. "Late binding" comes from the fact
+            that <code><span class="symbol">static</span><span class="operator">::</span></code
+            > will not be resolved using the class where the method is defined but it will rather be computed using
+            runtime information. It was also called a "static binding" as it can be used for (but is not limited to)
+            static method calls.
+          </li>
+          <li>
+            A reference is required to write to the same object property. Variables whose values are set to an object
+            can read from the same properties.
+          </li>
+          <li>
+            One notable interaction is between the finally block and a return statement. If a return statement is
+            encountered inside either the try or the catch blocks, the finally block will still be executed. Moreover,
+            the return statement is evaluated when encountered, but the result will be returned after the finally block
+            is executed. Additionally, if the finally block also contains a return statement, the value from
+            the finally block is returned.
+          </li>
+          <li>
+            Exceptions cannot be cloned. Attempting to clone an <code><span class="symbol">Exception</span></code> will
+            result in a fatal <code><span class="symbol">E_ERROR</span></code
+            > error.
+          </li>
+          <li>If you assign, pass, or return an undefined variable by reference, it will get created.</li>
+          <li>
+            If you assign a reference to a variable declared global inside a function, the reference will be visible
+            only inside the function. You can avoid this by using the <code><span class="symbol">$GLOBALS</span></code
+            > array.
+          </li>
+          <li>
+            References inside arrays are potentially dangerous. Doing a normal (not by reference) assignment with a
+            reference on the right side does not turn the left side into a reference, but references inside arrays are
+            preserved in these normal assignments. This also applies to function calls where the array is passed by
+            value. In other words, the reference behavior of arrays is defined in an element-by-element basis; the
+            reference behavior of individual elements is dissociated from the reference status of the array container.
+            <br />
+            <br />
+            <code class="multiline">
+              <span class="text-black">
+                <span class="operator">function&nbsp;&amp;</span><span class="var">collector</span
+                ><span class="operator">()&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;static&nbsp;</span
+                ><span class="var">$collection&nbsp;</span
+                ><span class="operator">=&nbsp;[];<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span
+                ><span class="var">$collection</span><span class="operator">;<br />}<br /></span
+                ><span class="var">$collection&nbsp;</span><span class="operator">=&nbsp;&amp;</span
+                ><span class="var">collector</span><span class="operator">();<br /></span
+                ><span class="var">$collection</span><span class="operator">[]&nbsp;=&nbsp;</span
+                ><span class="string">"foo"</span><span class="operator">;<br /></span>
+              </span>
+            </code>
+          </li>
+          <li>
+            There are three scenarios where a <code><span class="symbol">TypeError</span></code
+            > may be thrown. The first is where the argument type being passed to a function does not match its
+            corresponding declared parameter type. The second is where a value being returned from a function does not
+            match the declared function return type. The third is where an invalid number of arguments are passed to a
+            built-in PHP function (strict mode only)
+          </li>
+          <li>
+            <a href="https://www.php.net/manual/en/security.variables.php">User Submitted Data:</a>
+            <ul>
+              <li>Will this script only affect the intended files?</li>
+              <li>Can unusual or undesirable data be acted upon?</li>
+              <li>Can this script be used in unintended ways?</li>
+              <li>Can this be used in conjunction with other scripts in a negative manner?</li>
+              <li>Will any transactions be adequately logged?</li>
+            </ul>
+          </li>
+        </ol>
+      </article>
+      <article id="sessions">
+        <h3 class="subheading">Sessions</h3>
+        <ol>
+          <li>
+            <a
+              href="https://www.php.net/manual/en/features.session.security.management.php#features.session.security.management.non-adaptive-session"
+              >Use strict mode</a
+            >
+            should be enabled for sessions.
+          </li>
+          <li>A user id can be prefixed to a session id. PHP &gt;= 7.1.0.</li>
+          <li>A timestamp should be used when generating a session id.</li>
+          <li>
+            Use
+            <a
+              href="https://www.php.net/manual/en/features.session.security.management.php#features.session.security.management.session-locking"
+              >read only sessions</a
+            >
+            to mitigate DoS attacks.
+          </li>
+        </ol>
+      </article>
+      <article id="garbage-collection-colors">
+        <h4>Garbage Collection colors:</h4>
+        <dl>
+          <dt>Black</dt>
+          <dd>In use or free.</dd>
+          <dt class="text-gray">Grey</dt>
+          <dd>Possible member of cycle.</dd>
+          <dt>White</dt>
+          <dd>Member of garbage cycle.</dd>
+          <dt class="text-purple">Purple</dt>
+          <dd>Possible root of cycle.</dd>
+        </dl>
+        <p>
+          <a href="http://researcher.watson.ibm.com/researcher/files/us-bacon/Bacon01Concurrent.pdf">See this paper.</a>
+        </p>
+      </article>
+      <a href="./">go back;</a>
     </main>
-    <hr>
+    <hr />
     <footer>
-        <time id="time">00:00</time>
-        <ul>
-          <li>&copy; 2024 - Eric Fortmeyer</li>
-          <li>WCAG Level AAA Compliant</li>
-          <li>Achieved high website performance goals.  <a href="lighthouse-profile.html">See the results.</a></li>
-        </ul>
-        <address>
-          <p><a href="mailto:e.fortmeyer01@gmail.com">e.fortmeyer01@gmail.com</a></p>
-          <p><a href="https://www.twitter.com/EricFortmeyer">Twitter handle</a></p>
-        </address>
-      </footer>
-      <script src="resources/js/clock.js" async></script>
-      <script src="resources/js/loadSW.js" async></script>
+      <time id="time">00:00</time>
+      <ul>
+        <li>&copy; 2025 - Eric Fortmeyer</li>
+        <li>WCAG Level AAA Compliant</li>
+        <li>Achieved high website performance goals. <a href="lighthouse-profile.html">See the results.</a></li>
+      </ul>
+      <address>
+        <p><a href="mailto:e.fortmeyer01@gmail.com">e.fortmeyer01@gmail.com</a></p>
+        <p><a href="https://www.twitter.com/EricFortmeyer">Twitter handle</a></p>
+      </address>
+    </footer>
+    <script src="resources/js/clock.js" async></script>
+    <script src="resources/js/loadSW.js" async></script>
   </body>
 </html>
