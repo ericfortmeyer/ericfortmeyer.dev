@@ -13,5 +13,5 @@ rsync \
   	--recursive \
 	--exclude ".git" \
 	--exclude ".idea" \
-  	"$HOME/Projects/$PROJECT_CATEGORY/$HOSTNAME/" "$USER@$SERVER_HOSTNAME:$HOME/$HOSTNAME/"
+  	"$HOME/projects/$PROJECT_CATEGORY/$HOSTNAME/" "$SERVER_HOSTNAME:./$HOSTNAME/"
 ssh "$USER@$SERVER_HOSTNAME" "bash --login --restricted -s" < ./scripts/install.bash
