@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <title>ericfortmeyer.dev | Dreaming in PHP</title>
     <meta name="theme-color" content="#ffffff" />
@@ -14,6 +15,7 @@
     <link rel="stylesheet" href="resources/stylesheets/style.min.css" />
     <link rel="preload" as="script" type="text/javascript" href="resources/js/clock.js" />
   </head>
+
   <body>
     <main class="dreaming-in-php">
       <h1>dreaming in PHP</h1>
@@ -23,32 +25,27 @@
           <li>Using the extract function on an associative array that has a key "this" will cause an error.</li>
           <li>
             Use <code><span class="operator">+=</span></code> to append the values in one array to another without
-            having to initalize a new variable.<code
-              ><span class="symbol">$oldArray</span><span class="operator"> += </span><span class="symbol">[</span>
+            having to initalize a new variable.<code><span class="symbol">$oldArray</span><span class="operator"> += </span><span class="symbol">[</span>
               <span class="string">"some"</span> <span class="operator">=&gt;</span>
               <span class="string">"thing"</span> <span class="symbol">,</span> <span class="string">"another"</span>
               <span class="operator">=&gt;</span> <span class="string">"thing"</span>
-              <span class="symbol">]</span></code
-            >
+              <span class="symbol">]</span></code>
           </li>
           <li>
             <a
-              href="https://stackoverflow.com/questions/1179874/what-is-the-difference-between-bindparam-and-bindvalue#answer-1179927"
-              >bindParam vs bindValue -> bindParam is byRef meaning the value of the variable can change after calling
-              bindParam</a
-            >
+              href="https://stackoverflow.com/questions/1179874/what-is-the-difference-between-bindparam-and-bindvalue#answer-1179927">bindParam
+              vs bindValue -> bindParam is byRef meaning the value of the variable can change after calling
+              bindParam</a>
           </li>
           <li>
-            <a href="https://stackoverflow.com/questions/3683746/escaping-mysql-wild-cards"
-              >LIKE expressions may expose a SQL Injection vulnerability</a
-            >
+            <a href="https://stackoverflow.com/questions/3683746/escaping-mysql-wild-cards">LIKE expressions may expose
+              a SQL Injection vulnerability</a>
           </li>
           <li>
             <a href="https://www.php.net/manual/en/pdo.constants.php#pdo.constants.fetch-class">PDO:FETCH_CLASS</a> will
             use
-            <a href="https://www.php.net/manual/en/language.oop5.overloading.php#language.oop5.overloading.members"
-              >__set()</a
-            >
+            <a
+              href="https://www.php.net/manual/en/language.oop5.overloading.php#language.oop5.overloading.members">__set()</a>
             magic method when it encounters an undefined property. Properties are case-sensitive.
           </li>
           <li>
@@ -58,10 +55,10 @@
           </li>
           <li>
             PHP has <a href="https://www.php.net/manual/en/language.types.integer.php#example-42">integer literals</a>,
-            "not a number"(<code><span class="symbol">NAN</span></code
-            >), negative and positive infinity(<code><span class="symbol">INF</span></code
-            >, <code><span class="operator">-</span><span class="symbol">INF</span></code
-            >), and min/max integer and float values.
+            "not a number"(<code><span class="symbol">NAN</span></code>), negative and positive
+            infinity(<code><span class="symbol">INF</span></code>,
+            <code><span class="operator">-</span><span class="symbol">INF</span></code>), and min/max integer and float
+            values.
           </li>
           <li>
             Unserializing values can be dangerous
@@ -89,15 +86,13 @@
             </ol>
           </li>
           <li>
-            <a href="https://www.php.net/manual/en/features.file-upload.post-method.php#example-421"
-              >File Upload -- MAX_FILE_SIZE hidden input</a
-            >
+            <a href="https://www.php.net/manual/en/features.file-upload.post-method.php#example-421">File Upload --
+              MAX_FILE_SIZE hidden input</a>
           </li>
           <li>File uploads must be multipart/form-data.</li>
           <li>
-            <a href="https://www.php.net/manual/en/features.gc.collecting-cycles.php"
-              >Possible memory leaks -- long-running processes vulnerable</a
-            >
+            <a href="https://www.php.net/manual/en/features.gc.collecting-cycles.php">Possible memory leaks --
+              long-running processes vulnerable</a>
           </li>
           <li>
             <a href="https://www.php.net/manual/en/outcontrol.examples.rewrite.php">Rewriting output : )</a> can
@@ -115,10 +110,8 @@
           <li>
             <code><span class="symbol">$a</span> <span class="operator">+=</span> <span class="symbol">3</span></code>
             results in faster execution than
-            <code
-              ><span class="symbol">$a</span> <span class="operator">=</span> <span class="symbol">$a</span>
-              <span class="operator">+</span> <span class="symbol">3</span></code
-            >
+            <code><span class="symbol">$a</span> <span class="operator">=</span> <span class="symbol">$a</span>
+              <span class="operator">+</span> <span class="symbol">3</span></code>
             <a href="https://www.php.net/manual/en/language.expressions.php">See this.</a>
           </li>
           <li>The spaceship operator can be used for value object comparison.</li>
@@ -154,10 +147,8 @@
           <li>Constructor methods are exempt from signature compatibility rules when extended.</li>
           <li>
             If you assign a closure/anonymous function to a property, you have to enclose it in parentheses to call it.
-            <code
-              ><span class="operator">(</span><span class="var">$obj</span><span class="operator">-&gt;</span
-              ><span class="var">bar</span><span class="operator">)();</span></code
-            >
+            <code><span class="operator">(</span><span class="var">$obj</span><span class="operator">-&gt;</span
+              ><span class="var">bar</span><span class="operator">)();</span></code>
           </li>
           <li>Constant expressions must be used to initialize a class property.</li>
           <li>
@@ -173,12 +164,10 @@
           <li>Scope Resolution Operator (::) is also known as Paamayim Nekudotayim.</li>
           <li>
             It"s possible to reference the class using a variable. The variable"s value can not be a keyword (e.g. 
-            <code><span class="symbol">self</span></code
-            >,
+            <code><span class="symbol">self</span></code>,
             <code><span class="symbol">parent</span></code>
             and  
-            <code><span class="symbol">static</span></code
-            >).
+            <code><span class="symbol">static</span></code>).
           </li>
           <li>
             A type declaration is considered more specific in the following case:
@@ -192,8 +181,7 @@
             Use the <code><span class="symbol">extends</span></code> keyword to combine interfaces.
             <br />
             <br />
-            <code class="multiline"
-              ><span class="text-black">
+            <code class="multiline"><span class="text-black">
                 <span class="operator">interface&nbsp;</span><span class="var">A&nbsp;</span
                 ><span class="operator">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span
                 ><span class="var">foo</span
@@ -226,28 +214,26 @@
             because such constructs are interpreted as relative namespace expressions.
           </li>
           <li>
-            Methods can be declared as <code><span class="symbol">final</span></code
-            >.
+            Methods can be declared as <code><span class="symbol">final</span></code>.
           </li>
           <li>
             More precisely, late static bindings work by storing the class named in the last "non-forwarding call". In
             case of static method calls, this is the class explicitly named (usually the one on the left of
             the :: operator); in case of non static method calls, it is the class of the object. A "forwarding call" is
             a static one that is introduced by 
-            <code><span class="symbol">self</span><span class="operator">::</span></code
-            >,  <code><span class="symbol">parent</span><span class="operator">::</span></code
-            >,  <code><span class="symbol">static</span><span class="operator">::</span></code
-            >, or, if going up in the class hierarchy,
+            <code><span class="symbol">self</span><span class="operator">::</span></code>, 
+            <code><span class="symbol">parent</span><span class="operator">::</span></code>, 
+            <code><span class="symbol">static</span><span class="operator">::</span></code>, or, if going up in the
+            class hierarchy,
             <a href="https://www.php.net/manual/en/function.forward-static-call">forward_static_call()</a>. The
             function  <a href="https://www.php.net/manual/en/function.get-called-class">get_called_class()</a>  can be
-            used to retrieve a string with the name of the called class and <code
-              ><span class="symbol">static</span><span class="operator">::</span></code
-            > introduces its scope.
+            used to retrieve a string with the name of the called class
+            and <code><span class="symbol">static</span><span class="operator">::</span></code> introduces its scope.
           </li>
           <li>
             "Late static bindings" was named with an internal perspective in mind. "Late binding" comes from the fact
-            that <code><span class="symbol">static</span><span class="operator">::</span></code
-            > will not be resolved using the class where the method is defined but it will rather be computed using
+            that <code><span class="symbol">static</span><span class="operator">::</span></code> will not be resolved
+            using the class where the method is defined but it will rather be computed using
             runtime information. It was also called a "static binding" as it can be used for (but is not limited to)
             static method calls.
           </li>
@@ -264,14 +250,13 @@
           </li>
           <li>
             Exceptions cannot be cloned. Attempting to clone an <code><span class="symbol">Exception</span></code> will
-            result in a fatal <code><span class="symbol">E_ERROR</span></code
-            > error.
+            result in a fatal <code><span class="symbol">E_ERROR</span></code> error.
           </li>
           <li>If you assign, pass, or return an undefined variable by reference, it will get created.</li>
           <li>
             If you assign a reference to a variable declared global inside a function, the reference will be visible
-            only inside the function. You can avoid this by using the <code><span class="symbol">$GLOBALS</span></code
-            > array.
+            only inside the function. You can avoid this by using
+            the <code><span class="symbol">$GLOBALS</span></code> array.
           </li>
           <li>
             References inside arrays are potentially dangerous. Doing a normal (not by reference) assignment with a
@@ -296,8 +281,8 @@
             </code>
           </li>
           <li>
-            There are three scenarios where a <code><span class="symbol">TypeError</span></code
-            > may be thrown. The first is where the argument type being passed to a function does not match its
+            There are three scenarios where a <code><span class="symbol">TypeError</span></code> may be thrown. The
+            first is where the argument type being passed to a function does not match its
             corresponding declared parameter type. The second is where a value being returned from a function does not
             match the declared function return type. The third is where an invalid number of arguments are passed to a
             built-in PHP function (strict mode only)
@@ -319,9 +304,8 @@
         <ol>
           <li>
             <a
-              href="https://www.php.net/manual/en/features.session.security.management.php#features.session.security.management.non-adaptive-session"
-              >Use strict mode</a
-            >
+              href="https://www.php.net/manual/en/features.session.security.management.php#features.session.security.management.non-adaptive-session">Use
+              strict mode</a>
             should be enabled for sessions.
           </li>
           <li>A user id can be prefixed to a session id. PHP &gt;= 7.1.0.</li>
@@ -329,9 +313,8 @@
           <li>
             Use
             <a
-              href="https://www.php.net/manual/en/features.session.security.management.php#features.session.security.management.session-locking"
-              >read only sessions</a
-            >
+              href="https://www.php.net/manual/en/features.session.security.management.php#features.session.security.management.session-locking">read
+              only sessions</a>
             to mitigate DoS attacks.
           </li>
         </ol>
@@ -358,7 +341,7 @@
     <footer>
       <time id="time">00:00</time>
       <ul>
-        <li>&copy; 2025 - Eric Fortmeyer</li>
+        <li>&copy; 2026 - Eric Fortmeyer</li>
         <li>WCAG Level AAA Compliant</li>
         <li>Achieved high website performance goals. <a href="lighthouse-profile.html">See the results.</a></li>
       </ul>
@@ -370,4 +353,5 @@
     <script src="resources/js/clock.js" async></script>
     <script src="resources/js/loadSW.js" async></script>
   </body>
+
 </html>
